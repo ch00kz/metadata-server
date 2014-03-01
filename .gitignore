@@ -1,0 +1,15 @@
+# Sublime text stuff
+*.sublime-*
+
+# Local settings file
+local_settings.py
+
+#Vagrant files
+Vagrant*
+*.vagrant
+
+#Compliled Python
+*.pyc
+
+#sqlite database
+*.sqlite3

@@ -1,0 +1,20 @@
+#login {
+  margin-top: 150px;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding: 20px;
+}
+#login input {
+  height: 50px;
+  font-size: 18px;
+}
+#login button.btn {
+  height: 45px;
+  background-color: rgba(0, 0, 0, 0.431373);
+  color: white;
+  font-size: 18px;
+  border: none;
+  font-family: 'Rosario', sans-serif;
+}

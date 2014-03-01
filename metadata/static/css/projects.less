@@ -1,0 +1,59 @@
+.transition(@time) {
+	-o-transition:@time;
+	-ms-transition:@time;
+	-moz-transition:@time;
+	-webkit-transition:@time;
+}
+
+#project-list-container{
+	position: relative;
+	display: inline-block;
+	float: left;
+	border-right: 1px solid #EBEBEB;
+	width:300px;
+
+	.feed-title {
+		background-color: #EBEBEB;
+		height:30px;
+		line-height: 30px;
+		padding-left:10px;
+		font-size: 13px;
+		color:#3C3C3C;
+		border-bottom: 1px solid #BEBEBE;
+	}
+}
+
+#project-details-container {
+	position: relative;
+	display: inline-block;
+
+	.project-name{
+		font-size: 44px;
+		font-weight: 300;
+		padding:15px;
+	}
+}
+
+#project-list {
+	overflow-y: scroll;
+}
+
+.project {
+	font-size: 16px;
+	font-weight: bold;
+	width:100%;
+	padding-left:10px;
+	border-bottom: 1px solid #BEBEBE;
+	height: 45px;
+	line-height: 45px;
+	cursor: pointer;
+
+	&:hover {
+		.transition(1.0s);
+		background-color: #00EBFF;
+	}
+}
+
+.selectedsnippet {
+	background-color: #00EBFF;
+}

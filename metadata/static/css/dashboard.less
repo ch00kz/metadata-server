@@ -1,0 +1,55 @@
+section#activity-container {
+	position: relative;
+	top:20px;
+	left:20px;
+	height: calc(100% - 40px);
+	width:340px;
+	
+	div.action-list {
+		overflow-y: scroll;
+		height:95%;
+	}
+
+
+	header {
+		font-weight: 600;
+		font-size: 18px;
+		height:5%;
+	}
+
+	div.action {
+		width:90%;
+		font-size:13px;
+		font-weight: 600;
+		padding-top: 10px;
+		padding-bottom: 15px;
+		border-bottom:1px solid lightgray;
+
+		div.action-icon {
+			display: inline-block;
+			float: left;
+			width:10%;
+		}
+		div.action-details {
+			display: inline-block;
+			width:90%;
+
+			strong {
+				text-decoration: underline;
+			}
+
+			strong.user {
+				color:@action-user-color;
+			}
+
+			strong.project {
+				color:@action-project-color;
+			}
+
+			div.date {
+				font-size: 11px;
+			}
+		}
+		
+	}
+}
