@@ -13,3 +13,6 @@ Vagrant*
 
 #sqlite database
 *.sqlite3
+
+#log files
+*.log
