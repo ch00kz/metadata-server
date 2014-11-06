@@ -1,15 +1,22 @@
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300");
+/* Here's the compiled CSS */
+body {
+  font-family: 'Open Sans', sans-serif;
+}
 header#header {
+  z-index: 20;
   height: 55px;
   background: #5b4282;
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
-  box-shadow: 0px 3px 5px rgba(100,100,100,0.49);
+  box-shadow: 0px 3px 7px rgba(100,100,100,0.49);
   text-align: center;
   line-height: 55px;
 }
-header#header div#menu-toggle {
+header#header a#menu-toggle {
+  display: block;
   float: left;
   border-radius: 30px;
   margin-top: 8.25px;
@@ -20,11 +27,13 @@ header#header div#menu-toggle {
   line-height: 41.25px;
   font-size: 20px;
   color: #fff;
+  -webkit-user-select: none;
+  transition: 0.3s;
 }
-header#header div#menu-toggle:hover {
-  color: #808080;
+header#header a#menu-toggle:hover {
+  background: rgba(178,178,178,0.26);
 }
-header#header div#menu-toggle:active {
+header#header a#menu-toggle:active {
   background: #add8e6;
 }
 header#header input#system-search {
@@ -46,4 +55,70 @@ header#header input#system-search:focus {
 }
 header#header input#system-search:active {
   background: #8e83a0;
+}
+nav#sidebar {
+  z-index: 19;
+  position: fixed;
+  box-shadow: 0 0 4px rgba(0,0,0,0.14), 2px 4px 8px rgba(0,0,0,0.28);
+  min-height: 45%;
+  width: 220px;
+  background: #ececec;
+  bottom: 0;
+  left: -220px;
+  top: 55px;
+  transition: left 0.2s ease;
+}
+nav#sidebar li {
+  position: relative;
+  list-style-type: none;
+  display: block;
+  margin: auto;
+  width: 90%;
+  height: 68px;
+}
+nav#sidebar li:not(:last-child) {
+  border-bottom: 1px solid #e5e5e5;
+}
+nav#sidebar a.sidebarLink {
+  position: absolute;
+  padding-left: 75px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  color: #3c3c3c;
+  display: block;
+  border-radius: 5px;
+  height: 50px;
+  line-height: 50px;
+  transition: 0.3s;
+  text-decoration: none;
+  font-weight: 600;
+}
+nav#sidebar a.sidebarLink:hover {
+  background-color: #e2e2e2 !important;
+}
+nav#sidebar a.sidebarLink.projects {
+  background: url("../img/icons/bill.png") no-repeat;
+  background-position: 15px center;
+  background-size: 35px 35px;
+}
+nav#sidebar a.sidebarLink.staff {
+  background: url("../img/icons/tie.png") no-repeat;
+  background-position: 15px center;
+  background-size: 35px 35px;
+}
+nav#sidebar a.sidebarLink.contacts {
+  background: url("../img/icons/passport.png") no-repeat;
+  background-position: 15px center;
+  background-size: 35px 35px;
+}
+nav#sidebar a.sidebarLink.settings {
+  background: url("../img/icons/wrench.png") no-repeat;
+  background-position: 15px center;
+  background-size: 35px 35px;
+}
+.slideIn {
+  left: 0 !important;
 }

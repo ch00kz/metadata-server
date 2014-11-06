@@ -12,12 +12,25 @@
 </head>
 <body>
 	<header id="header">
-		<div id="menu-toggle"><i class="fa fa-bars"></i></div>
+		<a id="menu-toggle"><i class="fa fa-bars"></i></a>
 		<input id="system-search">
 	</header>
 	<div id="container">
-		{% block page_content %}
-		{% endblock %}
+
+		<nav id="sidebar">
+			<li>
+				<a href="#" class="sidebarLink projects">Projects</a>
+			</li>
+			<li>
+				<a href="#" class="sidebarLink staff">Staff</a>
+			</li>
+			<li>
+				<a href="#" class="sidebarLink contacts">Contacts</a>
+			</li>
+			<li>
+				<a href="#" class="sidebarLink settings">Settings</a>
+			</li>
+		</nav>
 	</div>
 </body>
 </html>
