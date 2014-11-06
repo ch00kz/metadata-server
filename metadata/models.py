@@ -2,7 +2,29 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 
-# Create your models here.
+class Title(models.Model):
+	name = models.CharField(max_length=50,null=True,blank=True)
+
+	def __unicode__(self):
+		return u'{}'.format(self.name)
+
+class Gender(models.Model):
+	name = models.CharField(max_length=50,null=True,blank=True)
+
+	def __unicode__(self):
+		return u'{}'.format(self.name)
+
+class Staff(models.Model):
+	title = models.ForeignKey(Title, null=True, blank=True)
+	gender = models.ForeignKey(Gender, null=True, blank=True)
+	first_name = models.CharField(max_length=50)
+	last_name = models.CharField(max_length=50)
+	position = models.CharField(max_length=50)
+	email = models.CharField(max_length=50,null=True,blank=True)
+	office_phone = models.CharField(max_length=50,null=True,blank=True)
+	mobile_phone = models.CharField(max_length=50,null=True,blank=True)
+	home_phone = models.CharField(max_length=50,null=True,blank=True)
+	photo = models.FileField(upload_to="staff_photos/", blank=True, null=True)
 
 class Project(models.Model):
 	name = models.CharField(max_length=50,null=True,blank=True)
@@ -14,7 +36,6 @@ class Project(models.Model):
 	expected_cost = models.DecimalField(max_digits=10, decimal_places=2,null=True,blank=True)
 	actual_cost = models.DecimalField(max_digits=10, decimal_places=2,null=True,blank=True)
 	department = models.ManyToManyField('Department',null=True,blank=True)
-	assigned_users = models.ManyToManyField(User)
 
 	@property
 	def dept_list(self):
@@ -44,17 +65,3 @@ class Department(models.Model):
 
 	def __unicode__(self):
 		return u'%s' % self.name
-
-class UserProfile(models.Model):
-	user = models.OneToOneField(User) 
-	is_manager = models.BooleanField(default=False)
-
-	@property
-	def username(self):
-	    return self.user.username
-
-def create_user_profile(sender, instance, created, **kwargs):  
-    if created:  
-       profile, created = UserProfile.objects.get_or_create(user=instance)
-
-post_save.connect(create_user_profile, sender=User) 

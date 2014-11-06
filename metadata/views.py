@@ -11,33 +11,8 @@ from django.contrib.auth.decorators import login_required
 from metadata.models import Action, Project
 
 # Create your views here.
-@login_required
 def dashboard(request):
-	projects = Project.objects.filter(assigned_users__in=[request.user])
-	actions = Action.objects.filter(project__in=projects)
-	context = {
-		'actions':actions,
-		'user': request.user,
-	}
-	return render (request, 'dashboard.html', context)
-
-@login_required
-def projects(request):
-	context = {
-	}
-	return render (request, 'projects.html', context)
-
-@login_required
-def calendar(request):
-	context = {
-	}
-	return render (request, 'calendar.html', context)
-
-@login_required
-def settings(request):
-	context = {
-	}
-	return render (request, 'settings.html', context)
+	return render (request, 'dashboard.html', {})
 
 def auth_login(request):
 	if request.user.is_authenticated():
