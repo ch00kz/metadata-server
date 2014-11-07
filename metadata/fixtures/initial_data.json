@@ -50,6 +50,34 @@
 },
 {
     "fields": {
+        "name": "Software Develpment"
+    },
+    "model": "metadata.department",
+    "pk": 1
+},
+{
+    "fields": {
+        "name": "Natural Hazards and Environment"
+    },
+    "model": "metadata.department",
+    "pk": 2
+},
+{
+    "fields": {
+        "name": "Human and Social"
+    },
+    "model": "metadata.department",
+    "pk": 3
+},
+{
+    "fields": {
+        "name": "Administration"
+    },
+    "model": "metadata.department",
+    "pk": 4
+},
+{
+    "fields": {
         "first_name": "Andrew",
         "last_name": "Thomas",
         "title": 1,
@@ -58,6 +86,7 @@
         "mobile_phone": "339-3739",
         "home_phone": "",
         "photo": "staff_photos/wallhaven-33469.jpg",
+        "department": null,
         "position": "Programmer",
         "email": "athomas@monainformatixltd.com"
     },
@@ -74,6 +103,7 @@
         "mobile_phone": "555-5768",
         "home_phone": "",
         "photo": "staff_photos/wallhaven-84887.jpg",
+        "department": null,
         "position": "UX Designer",
         "email": "ebinns@monainformatixltd.com"
     },
@@ -90,6 +120,7 @@
         "mobile_phone": "555-5769",
         "home_phone": "",
         "photo": "staff_photos/wallhaven-84658.jpg",
+        "department": null,
         "position": "Programmer",
         "email": "jprose@monainformatixltd.com"
     },
@@ -106,6 +137,7 @@
         "mobile_phone": "554-2343",
         "home_phone": "",
         "photo": "staff_photos/wallhaven-5756.jpg",
+        "department": null,
         "position": "Lead Programmer",
         "email": "jmwright@monainformatixltd.com"
     },
@@ -122,10 +154,105 @@
         "mobile_phone": "545-2343",
         "home_phone": "",
         "photo": "staff_photos/wallhaven-34501.jpg",
+        "department": null,
         "position": "Programmer",
         "email": "cfrancis@monainformatixltd.com"
     },
     "model": "metadata.staff",
     "pk": 5
+},
+{
+    "fields": {
+        "first_name": "Parris",
+        "last_name": "Lyew-Ayee",
+        "title": 4,
+        "gender": 1,
+        "office_phone": "",
+        "mobile_phone": "",
+        "home_phone": "",
+        "photo": "",
+        "department": 4,
+        "position": "Director",
+        "email": "admin@monainformatixltd.com"
+    },
+    "model": "metadata.staff",
+    "pk": 6
+},
+{
+    "fields": {
+        "first_name": "Ava",
+        "last_name": "Maxam",
+        "title": 4,
+        "gender": 2,
+        "office_phone": "",
+        "mobile_phone": "",
+        "home_phone": "",
+        "photo": "",
+        "department": 4,
+        "position": "Deputy Director",
+        "email": "amaxam@monainformatixltd.com"
+    },
+    "model": "metadata.staff",
+    "pk": 7
+},
+{
+    "fields": {
+        "actual_start_date": "2013-11-07",
+        "name": "eXcess",
+        "expected_start_date": "2013-11-07",
+        "actual_end_date": null,
+        "expected_cost": "15000000",
+        "expected_end_date": "2014-11-07",
+        "department": [],
+        "actual_cost": "18500000",
+        "description": "Insurance Web Portal for JIIC"
+    },
+    "model": "metadata.project",
+    "pk": 1
+},
+{
+    "fields": {
+        "actual_start_date": "2014-10-01",
+        "name": "Unite For Change",
+        "expected_start_date": "2014-10-07",
+        "actual_end_date": null,
+        "expected_cost": "1000000",
+        "expected_end_date": "2014-11-01",
+        "department": [],
+        "actual_cost": null,
+        "description": ""
+    },
+    "model": "metadata.project",
+    "pk": 2
+},
+{
+    "fields": {
+        "actual_start_date": "2012-11-07",
+        "name": "NEPA",
+        "expected_start_date": "2012-11-07",
+        "actual_end_date": "2013-12-20",
+        "expected_cost": "5000000",
+        "expected_end_date": "2013-10-07",
+        "department": [],
+        "actual_cost": "5000000",
+        "description": "Coastal Set Back Line Tool +"
+    },
+    "model": "metadata.project",
+    "pk": 3
+},
+{
+    "fields": {
+        "actual_start_date": "2014-09-07",
+        "name": "Spanish Court Map",
+        "expected_start_date": "2014-09-07",
+        "actual_end_date": null,
+        "expected_cost": "200000",
+        "expected_end_date": null,
+        "department": [],
+        "actual_cost": "200000",
+        "description": "Tourtist Map of New Kingston for Spanish Court Hotel"
+    },
+    "model": "metadata.project",
+    "pk": 4
 }
 ]

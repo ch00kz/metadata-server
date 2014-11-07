@@ -12,7 +12,7 @@ class ActionAdmin(admin.ModelAdmin):
 	list_display = ['project','user','action']
 
 class DepartmentAdmin(admin.ModelAdmin):
-	list_display=['name',"description"]
+	list_display=['name']
 
 admin.site.register(Title)
 admin.site.register(Gender)

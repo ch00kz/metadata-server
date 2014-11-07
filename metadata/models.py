@@ -14,6 +14,12 @@ class Gender(models.Model):
 	def __unicode__(self):
 		return u'{}'.format(self.name)
 
+class Department(models.Model):
+	name = models.CharField(max_length=50,null=True,blank=True)
+
+	def __unicode__(self):
+		return u'{}'.format(self.name)
+
 class Staff(models.Model):
 	title = models.ForeignKey(Title, null=True, blank=True)
 	gender = models.ForeignKey(Gender, null=True, blank=True)
@@ -25,6 +31,7 @@ class Staff(models.Model):
 	mobile_phone = models.CharField(max_length=50,null=True,blank=True)
 	home_phone = models.CharField(max_length=50,null=True,blank=True)
 	photo = models.FileField(upload_to="staff_photos/", blank=True, null=True)
+	department = models.ForeignKey(Department, null=True, blank=True)
 
 class Project(models.Model):
 	name = models.CharField(max_length=50,null=True,blank=True)
@@ -59,9 +66,7 @@ class Action(models.Model):
 	project = models.ForeignKey('Project', related_name="actions", null=True, blank=True)
 	action = models.CharField(max_length=50, null=True, blank=True)
 
-class Department(models.Model):
-	name = models.CharField(max_length=50,null=True,blank=True)
-	description = models.TextField(null=True,blank=True)
+
 
 	def __unicode__(self):
 		return u'%s' % self.name
