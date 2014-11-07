@@ -11,7 +11,7 @@ from tastypie.exceptions import ImmediateHttpResponse
 from tastypie.resources import csrf_exempt
 import logging
  
-class BaseCorsResource(Resource):
+class BaseCorsResource(ModelResource):
     """
     Class implementing CORS
     """
@@ -98,36 +98,8 @@ class BaseCorsResource(Resource):
             return wrapped_view(request, *args, **kwargs)
         return wrapper
 
-class UserResource(BaseCorsResource,ModelResource):
-    class Meta:
-        queryset = User.objects.all()
-        resource_name = 'users'
-        serializer = Serializer(formats=['json'])
-
-class StaffResource(BaseCorsResource,ModelResource):
+class StaffResource(BaseCorsResource):
     class Meta:
         queryset = Staff.objects.all().order_by('last_name')
         resource_name = 'staff'
         serializer = Serializer(formats=['json'])
-
-class ProjectResource(BaseCorsResource,ModelResource):
-    class Meta:
-        queryset = Project.objects.all()
-        resource_name = 'projects'
-        serializer = Serializer(formats=['json'])
-
-class ProjectSnippetResource(BaseCorsResource,ModelResource):
-    class Meta:
-        queryset = Project.objects.all()
-        fields = ['name', 'id']
-        resource_name = 'project-snippets'
-        serializer = Serializer(formats=['json'])
-
-class ActionResource(BaseCorsResource,ModelResource):
-	user = fields.ForeignKey(UserResource, 'user', full=True, blank=True, null=True)
-	project = fields.ForeignKey(ProjectResource, 'project', full=True, blank=True, null=True)
-	class Meta:
-		queryset = Action.objects.all()
-		authorization = DjangoAuthorization()
-		resource_name = 'activity'
-		serializer = Serializer(formats=['json'])
