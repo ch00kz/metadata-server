@@ -103,3 +103,9 @@ class StaffResource(BaseCorsResource):
         queryset = Staff.objects.all().order_by('last_name')
         resource_name = 'staff'
         serializer = Serializer(formats=['json'])
+
+class ProjectResource(BaseCorsResource):
+    class Meta:
+        queryset = Project.objects.all().order_by('name')
+        resource_name = 'project'
+        serializer = Serializer(formats=['json'])

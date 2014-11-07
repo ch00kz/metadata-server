@@ -5,6 +5,7 @@ from metadata.api import *
 
 v1_api = Api(api_name='v1')
 v1_api.register(StaffResource())
+v1_api.register(ProjectResource())
 admin.autodiscover()
 
 urlpatterns = patterns('',
