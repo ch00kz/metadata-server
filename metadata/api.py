@@ -2,6 +2,7 @@
 from tastypie.resources import Resource, ModelResource, ALL_WITH_RELATIONS, ALL
 from tastypie.authorization import DjangoAuthorization
 from metadata.models import *
+from django.contrib.auth.models import User
 from tastypie.serializers import Serializer
 from tastypie import fields
 
@@ -108,4 +109,11 @@ class ProjectResource(BaseCorsResource):
     class Meta:
         queryset = Project.objects.all().order_by('name')
         resource_name = 'project'
+        serializer = Serializer(formats=['json'])
+
+class UserResource(BaseCorsResource):
+    class Meta:
+        excludes = ['password',"is_active","is_staff","is_superuser"]
+        queryset = User.objects.all()
+        resource_name = 'user'
         serializer = Serializer(formats=['json'])
