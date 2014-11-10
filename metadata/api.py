@@ -131,7 +131,6 @@ class UserResource(BaseCorsResource):
 
     def login(self, request, **kwargs):
         self.method_check(request, allowed=['post'])
-
         data = request.POST
 
         username = data.get('username', '')
