@@ -1,17 +1,8 @@
 Django==1.7.1
-GnuPGInterface==0.3.2
-apt-xapian-index==0.44
-argparse==1.2.1
-chardet==2.0.1
-command-not-found==0.2.44
-## FIXME: could not find svn URL in dependency_links for this package:
-distribute==0.6.24dev-r0
 django-tastypie==0.12.1
-language-selector==0.1
-python-apt==0.8.3ubuntu7
-python-dateutil==2.2
-python-debian==0.1.21ubuntu1
-python-mimeparse==0.1.4
-six==1.8.0
-ufw==0.31.1-1
+dj-database-url==0.3.0
+dj-static==0.0.6
+gunicorn==19.1.1
+psycopg2==2.5.1
+static==0.4
 wsgiref==0.1.2
