@@ -1,1 +1,1 @@
-web: python metadata/manage.py run_gunicorn
+web: gunicorn metadata.wsgi --log-file -
