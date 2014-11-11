@@ -85,4 +85,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = "/var/www/aqueous-atoll-8548.herokuapp.com/static/"
+STATIC_ROOT = "/static_root/"
