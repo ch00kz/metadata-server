@@ -1,1 +1,1 @@
-web: gunicorn metadata.wsgi --log-file -
+web: gunicorn metadata.wsgi --app metadata --log-file -
