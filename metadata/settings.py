@@ -62,9 +62,9 @@ LOGIN_URL = '/login/'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'metadata',                      
-        'USER': 'metadata',
-        'PASSWORD': 'metadata',
+        'NAME': 'metadata',
+        'USER': 'vagrant',
+        'PASSWORD': 'vagrant',
         'HOST': 'localhost'
     }
 }
