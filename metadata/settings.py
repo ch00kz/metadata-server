@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'metadata',
+    "auth_module",
     'tastypie'
 )
 
