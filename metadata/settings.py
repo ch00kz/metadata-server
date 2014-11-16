@@ -90,3 +90,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = "static_root"
+
+AUTH_USER_MODEL = 'auth_module.MetadataUser'
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
