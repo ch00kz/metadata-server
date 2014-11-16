@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from auth_module.models import MetadataUser
 from django.db.models.signals import post_save
 
 class Title(models.Model):
@@ -58,15 +58,13 @@ class ProjectLog(models.Model):
 	description = models.TextField(null=True, blank=True)
 	date_created = models.DateField(null=True,blank=True)
 	date_updated = models.DateField(null=True,blank=True)
-	assigned_users = models.ManyToManyField(User)
+	assigned_users = models.ManyToManyField(MetadataUser)
 
 class Action(models.Model):
-	user = models.ForeignKey(User, related_name="actions")
+	user = models.ForeignKey(MetadataUser, related_name="actions")
 	date = models.DateTimeField()
 	project = models.ForeignKey('Project', related_name="actions", null=True, blank=True)
 	action = models.CharField(max_length=50, null=True, blank=True)
-
-
 
 	def __unicode__(self):
 		return u'%s' % self.name
