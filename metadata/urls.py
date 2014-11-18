@@ -13,4 +13,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls), name='admin'),
     url(r'^$', RedirectView.as_view(url='admin', permanent=False), name='index'),
     url(r'^api/', include(v1_api.urls)),
+    url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
 )
