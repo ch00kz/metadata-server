@@ -2,9 +2,11 @@ from django.conf.urls import patterns, include, url
 from django.views.generic.base import RedirectView
 from tastypie.api import Api
 from django.contrib import admin
-from metadata.api import *
+from auth_module.api import *
 
 v1_api = Api(api_name='v1')
+v1_api.register(MetadataUserResource())
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
