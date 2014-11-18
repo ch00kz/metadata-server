@@ -36,6 +36,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django_extensions',
+    'oauth2_provider',
+    'corsheaders',
     'metadata',
     "auth_module",
     'tastypie'
