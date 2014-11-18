@@ -3,7 +3,7 @@ from auth_module.models import MetadataUser
 from django.db.models.signals import post_save
 
 class Title(models.Model):
-	name = models.CharField(max_length=50,null=True,blank=True)
+	name = models.CharField(max_length = 50, null = True, blank =True)
 
 	def __unicode__(self):
 		return u'{}'.format(self.name)
@@ -26,10 +26,10 @@ class Staff(models.Model):
 	first_name = models.CharField(max_length=50)
 	last_name = models.CharField(max_length=50)
 	position = models.CharField(max_length=50)
-	email = models.CharField(max_length=50,null=True,blank=True)
-	office_phone = models.CharField(max_length=50,null=True,blank=True)
-	mobile_phone = models.CharField(max_length=50,null=True,blank=True)
-	home_phone = models.CharField(max_length=50,null=True,blank=True)
+	email = models.CharField(max_length=50, null=True, blank=True)
+	office_phone = models.CharField(max_length=50, null=True, blank=True)
+	mobile_phone = models.CharField(max_length=50, null=True, blank=True)
+	home_phone = models.CharField(max_length=50, null=True, blank=True)
 	photo = models.FileField(upload_to="staff_photos/", blank=True, null=True)
 	department = models.ForeignKey(Department, null=True, blank=True)
 
