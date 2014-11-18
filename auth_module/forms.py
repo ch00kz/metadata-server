@@ -26,3 +26,4 @@ class MetadataUserChangeForm(UserChangeForm):
 
     class Meta:
         model = MetadataUser
+        fields = []
