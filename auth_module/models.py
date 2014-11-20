@@ -28,6 +28,7 @@ class MetadataUser(AbstractBaseUser, PermissionsMixin):
 	last_name = models.CharField(max_length = 70)
 	is_manager = models.BooleanField(default = False)
 	is_staff = models.BooleanField(default = False)
+	access_token = models.CharField(max_length="32", null=True, blank=True)
 
 	USERNAME_FIELD = "email"
 	REQUIRED_FIELDS = ["first_name", "last_name",]
