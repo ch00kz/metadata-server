@@ -3,9 +3,11 @@ from django.views.generic.base import RedirectView
 from tastypie.api import Api
 from django.contrib import admin
 from auth_module.api import *
+from metadata.api import *
 
 v1_api = Api(api_name='v1')
 v1_api.register(MetadataUserResource())
+v1_api.register(StaffResource())
 
 admin.autodiscover()
 
