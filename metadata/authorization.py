@@ -6,7 +6,8 @@ class StaffAuthorization(Authorization):
         # This assumes a ``QuerySet`` from ``ModelResource``.
         request = bundle.request
         print request
-        raise Unauthorized
+        # raise Unauthorized
+        return object_list
 
     def read_detail(self, object_list, bundle):
         # Is the requested object owned by the user?
