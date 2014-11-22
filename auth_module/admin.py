@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import Group
-from auth_module.models import MetadataUser
+from auth_module.models import *
 from auth_module.forms import MetadataUserCreationForm, MetadataUserChangeForm
 
 class MedataUserAdmin(UserAdmin):
@@ -31,5 +31,9 @@ class MedataUserAdmin(UserAdmin):
     ordering = ('email',)
     filter_horizontal = ()
 
+class AccessTokenAdmin(admin.ModelAdmin):
+    list_display = ['user','token','created','expires']
+
 admin.site.register(MetadataUser, MedataUserAdmin)
+admin.site.register(AccessToken, AccessTokenAdmin)
 admin.site.unregister(Group)
