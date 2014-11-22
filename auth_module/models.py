@@ -1,3 +1,6 @@
+from datetime import timedelta, datetime
+from django.utils.crypto import get_random_string
+
 from django.db import models
 from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager, PermissionsMixin)
 
@@ -28,7 +31,6 @@ class MetadataUser(AbstractBaseUser, PermissionsMixin):
 	last_name = models.CharField(max_length = 70)
 	is_manager = models.BooleanField(default = False)
 	is_staff = models.BooleanField(default = False)
-	access_token = models.CharField(max_length="32", null=True, blank=True)
 
 	USERNAME_FIELD = "email"
 	REQUIRED_FIELDS = ["first_name", "last_name",]
@@ -55,3 +57,23 @@ class MetadataUser(AbstractBaseUser, PermissionsMixin):
 		"Does the user have permissions to view the app `app_label`?"
 		# Simplest possible answer: Yes, always
 		return True
+
+class AccessToken(models.Model):
+	user = models.ForeignKey(MetadataUser, related_name="tokens")
+	token = models.CharField(max_length="32", null=True, blank=True)
+	created = models.DateTimeField(null=True, blank=True)
+	expires = models.DateTimeField(null=True, blank=True)
+
+	@staticmethod
+	def create_token(user):
+		token = get_random_string(length=32)
+		AccessToken.objects.create(
+			user = user,
+			token = token,
+			created = datetime.now(),
+			expires = datetime.now() + timedelta(days=1)
+		)
+		return token
+
+	def refresh_token(self):
+		self.expiry_date = self.expiry_date + timedelta(days=1)
