@@ -5,7 +5,9 @@ class StaffAuthorization(Authorization):
     def read_list(self, object_list, bundle):
         # This assumes a ``QuerySet`` from ``ModelResource``.
         request = bundle.request
-        print request
+        auth_header = request.META.get('HTTP_AUTHORIZATION').split(',')
+        access_token = auth_header[0]
+        username = auth_header[1]
         # raise Unauthorized
         return object_list
 
