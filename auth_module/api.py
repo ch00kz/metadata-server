@@ -1,12 +1,10 @@
 from django.contrib.auth import authenticate, login, logout
-from django.utils.crypto import get_random_string
 from django.conf.urls import url
 from tastypie.utils import trailing_slash
 from tastypie.resources import ModelResource
 from tastypie.serializers import Serializer
 
-from auth_module.models import MetadataUser
-
+from auth_module.models import MetadataUser, AccessToken
 
 class MetadataUserResource(ModelResource):
 	class Meta:
@@ -31,9 +29,7 @@ class MetadataUserResource(ModelResource):
 		if not user:
 	 		return self.create_response(request, { 'status': False })
 
-		access_token = get_random_string(length=32)
-		user.access_token = access_token
-		user.save()
-	 	return self.create_response(request, { 'status': True, 'access_token': access_token })
+		token = AccessToken.create_token(user)
+	 	return self.create_response(request, { 'status': True, 'access_token': token })
 
 
