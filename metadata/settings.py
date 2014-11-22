@@ -37,7 +37,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'django_extensions',
-    'oauth2_provider',
     'corsheaders',
     'metadata',
     "auth_module",
