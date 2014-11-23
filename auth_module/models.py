@@ -75,5 +75,26 @@ class AccessToken(models.Model):
 		)
 		return token
 
+	@property
+	def is_valid(self):
+	    return self.expires < datetime.now()
+
+
 	def refresh_token(self):
 		self.expiry_date = self.expiry_date + timedelta(days=1)
+
+	@staticmethod
+	def validate(username, token):
+		print "Validating {},{}".format(username, token)
+		try:
+			user = MetadataUser.objects.get(email = username)
+			access_token = AccessToken.objects.get(user = user, token = token)
+			if access_token.is_valid:
+				print "Valid Access Token"
+				return True
+		except Exception as e:
+			print e
+			return False
+		print "Invalid Access Token"
+		return False
+
