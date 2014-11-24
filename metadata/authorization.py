@@ -1,42 +1,30 @@
 from tastypie.authorization import Authorization
 from tastypie.exceptions import Unauthorized
+from auth_module.decorators import verify_token
 
 class StaffAuthorization(Authorization):
+
+    @verify_token
     def read_list(self, object_list, bundle):
-        # This assumes a ``QuerySet`` from ``ModelResource``.
-        request = bundle.request
-        auth_header = request.META.get('HTTP_AUTHORIZATION').split(',')
-        access_token = auth_header[0]
-        username = auth_header[1]
         # raise Unauthorized
         return object_list
 
     def read_detail(self, object_list, bundle):
-        # Is the requested object owned by the user?
-        return bundle.obj.user == bundle.request.user
+        return True
 
     def create_list(self, object_list, bundle):
-        # Assuming they're auto-assigned to ``user``.
         return object_list
 
     def create_detail(self, object_list, bundle):
-        return bundle.obj.user == bundle.request.user
+        return True
 
     def update_list(self, object_list, bundle):
-        allowed = []
-
-        # Since they may not all be saved, iterate over them.
-        for obj in object_list:
-            if obj.user == bundle.request.user:
-                allowed.append(obj)
-
-        return allowed
+        return object_list
 
     def update_detail(self, object_list, bundle):
-        return bundle.obj.user == bundle.request.user
+        return True
 
     def delete_list(self, object_list, bundle):
-        # Sorry user, no deletes for you!
         raise Unauthorized("Sorry, no deletes.")
 
     def delete_detail(self, object_list, bundle):
