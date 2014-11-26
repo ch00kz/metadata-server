@@ -1,5 +1,6 @@
 from datetime import timedelta, datetime
 from django.utils.crypto import get_random_string
+from metadata.utils import get_current_time, get_token_refresh_time
 
 from django.db import models
 from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager, PermissionsMixin)
@@ -70,8 +71,8 @@ class AccessToken(models.Model):
 		AccessToken.objects.create(
 			user = user,
 			token = token,
-			created = datetime.now(),
-			expires = datetime.now() + timedelta(days=1)
+			created = get_current_time(),
+			expires = get_token_refresh_time()
 		)
 		return token
 
@@ -79,9 +80,8 @@ class AccessToken(models.Model):
 	def is_valid(self):
 	    return self.expires > get_current_time()
 
-
-	def refresh_token(self):
-		self.expiry_date = self.expiry_date + timedelta(days=1)
+	def refresh(self):
+		self.expiry_date = get_token_refresh_time()
 
 	@staticmethod
 	def validate(username, token):
@@ -91,10 +91,10 @@ class AccessToken(models.Model):
 			access_token = AccessToken.objects.get(user = user, token = token)
 			if access_token.is_valid:
 				print "Valid Access Token"
-				return True
+				return dict(is_valid = True, token = access_token)
 		except Exception as e:
 			print e
 			return False
 		print "Invalid Access Token"
-		return False
+		return dict(is_valid = False)
 
