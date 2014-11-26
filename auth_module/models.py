@@ -77,7 +77,7 @@ class AccessToken(models.Model):
 
 	@property
 	def is_valid(self):
-	    return self.expires < datetime.now()
+	    return self.expires > get_current_time()
 
 
 	def refresh_token(self):
