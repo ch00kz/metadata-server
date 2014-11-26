@@ -23,7 +23,7 @@ SECRET_KEY = 'm*g#6)uk%ntey0@phm02!7v^j0908kthuodq35czms5zp443z8'
 DEBUG = True
 
 USE_TZ = True
-TIME_ZONE = "Jamaica"
+TIME_ZONE = "America/Jamaica"
 
 TEMPLATE_DEBUG = True
 
