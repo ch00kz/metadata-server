@@ -6,10 +6,11 @@ def verify_token(outer):
 		credentials = bundle.request.META.get("HTTP_AUTHORIZATION", None)
 		if credentials:
 			credentials = credentials.split(",")
-			is_valid = AccessToken.validate(credentials[1], credentials[0])
-			if is_valid:
+			check_token = AccessToken.validate(credentials[1], credentials[0])
+			if check_token['is_valid']:
+				check_token['token'].refresh()
 				return outer(self, object_list, bundle)
-		else:
-			raise Unauthorized
+			else:
+				raise Unauthorized
 		raise Unauthorized
 	return inner
