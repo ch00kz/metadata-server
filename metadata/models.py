@@ -50,18 +50,40 @@ class Client(models.Model):
 	def __unicode__(self):
 		return u'{} {} {}'.format(self.title, self.first_name, self.last_name)
 
+class ProjectStatus(models.Model):
+	name = models.CharField(max_length = 50, null = True, blank =True)
+	description = models.TextField(null = True, blank =True)
+
+	def __unicode__(self):
+		return u'{}'.format(self.name)
+
+class ProjectCategory(models.Model):
+	name = models.CharField(max_length = 50, null = True, blank =True)
+	description = models.TextField(null = True, blank =True)
+
+	def __unicode__(self):
+		return u'{}'.format(self.name)
+
+class Currency(models.Model):
+	name = models.CharField(max_length = 50, null = True, blank =True)
+	to_jmd = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+
+	def __unicode__(self):
+		return u'{}'.format(self.name)
+
 class Project(models.Model):
 	name = models.CharField(max_length=50,null=True,blank=True)
+	status = models.ForeignKey(ProjectStatus, null=True, blank=True)
+	category = models.ForeignKey(ProjectCategory, null=True, blank=True)
+	currency = models.ForeignKey(Currency, null=True, blank=True)
+	value = models.DecimalField(max_digits=10, decimal_places=2,null=True,blank=True)
 	clients = models.ManyToManyField(Client, null=True, blank=True)
 	lead_staff = models.ManyToManyField(Staff, related_name='+', null=True, blank=True)
 	assisting_staff = models.ManyToManyField(Staff, related_name='+', null=True, blank=True)
 	description = models.TextField(null=True,blank=True)
-	expected_start_date = models.DateField(null=True,blank=True)
-	actual_start_date = models.DateField(null=True,blank=True)
+	start_date = models.DateField(null=True,blank=True)
 	expected_end_date = models.DateField(null=True,blank=True)
 	actual_end_date = models.DateField(null=True,blank=True)
-	expected_cost = models.DecimalField(max_digits=10, decimal_places=2,null=True,blank=True)
-	actual_cost = models.DecimalField(max_digits=10, decimal_places=2,null=True,blank=True)
 	department = models.ManyToManyField('Department',null=True,blank=True)
 
 	@property
