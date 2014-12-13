@@ -1,6 +1,6 @@
 from tastypie.resources import ModelResource
 from tastypie.serializers import Serializer
-from metadata.models import Staff
+from metadata.models import Staff, Project
 from metadata.authorization import StaffAuthorization
 
 
@@ -11,3 +11,10 @@ class StaffResource(ModelResource):
 		allowed_methods = ['get', 'post']
 		serializer = Serializer(formats=['json'])
 		authorization = StaffAuthorization()
+
+class ProjectResource(ModelResource):
+	class Meta:
+		queryset = Project.objects.all()
+		resource_name = "project"
+		allowed_methods = ['get', 'post']
+		serializer = Serializer(formats=['json'])
