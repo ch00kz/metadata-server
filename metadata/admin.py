@@ -3,7 +3,7 @@ from metadata.models import *
 # Register your models here.
 
 class ProjectAdmin(admin.ModelAdmin):
-	list_display = ['name','dept_list','expected_start_date','expected_end_date','actual_start_date','actual_end_date']
+	list_display = ['name','dept_list','start_date','expected_end_date','actual_end_date']
 
 class StaffAdmin(admin.ModelAdmin):
 	list_display = ['title','first_name','last_name','position','email']
@@ -19,6 +19,9 @@ class ClientAdmin(admin.ModelAdmin):
 
 admin.site.register(Title)
 admin.site.register(Gender)
+admin.site.register(Currency)
+admin.site.register(ProjectStatus)
+admin.site.register(ProjectCategory)
 admin.site.register(Staff, StaffAdmin)
 admin.site.register(Client, ClientAdmin)
 admin.site.register(Project,ProjectAdmin)
