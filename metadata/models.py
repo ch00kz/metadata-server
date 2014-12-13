@@ -33,8 +33,28 @@ class Staff(models.Model):
 	photo = models.FileField(upload_to="staff_photos/", blank=True, null=True)
 	department = models.ForeignKey(Department, null=True, blank=True)
 
+	def __unicode__(self):
+		return u'{} {} {}'.format(self.title, self.first_name, self.last_name)
+
+class Client(models.Model):
+	title = models.ForeignKey(Title, null=True, blank=True)
+	first_name = models.CharField(max_length=50)
+	last_name = models.CharField(max_length=50)
+	entity = models.CharField(max_length=80)
+	position = models.CharField(max_length=50)
+	email = models.CharField(max_length=50, null=True, blank=True)
+	office_phone = models.CharField(max_length=50, null=True, blank=True)
+	mobile_phone = models.CharField(max_length=50, null=True, blank=True)
+	home_phone = models.CharField(max_length=50, null=True, blank=True)
+
+	def __unicode__(self):
+		return u'{} {} {}'.format(self.title, self.first_name, self.last_name)
+
 class Project(models.Model):
 	name = models.CharField(max_length=50,null=True,blank=True)
+	clients = models.ManyToManyField(Client, null=True, blank=True)
+	lead_staff = models.ManyToManyField(Staff, related_name='+', null=True, blank=True)
+	assisting_staff = models.ManyToManyField(Staff, related_name='+', null=True, blank=True)
 	description = models.TextField(null=True,blank=True)
 	expected_start_date = models.DateField(null=True,blank=True)
 	actual_start_date = models.DateField(null=True,blank=True)
@@ -58,12 +78,13 @@ class ProjectLog(models.Model):
 	description = models.TextField(null=True, blank=True)
 	date_created = models.DateField(null=True,blank=True)
 	date_updated = models.DateField(null=True,blank=True)
-	assigned_users = models.ManyToManyField(MetadataUser)
+	deleted = models.BooleanField(default=False)
 
 class Action(models.Model):
 	user = models.ForeignKey(MetadataUser, related_name="actions")
 	date = models.DateTimeField()
 	project = models.ForeignKey('Project', related_name="actions", null=True, blank=True)
+	project_log = models.ForeignKey('ProjectLog', related_name="actions", null=True, blank=True)
 	action = models.CharField(max_length=50, null=True, blank=True)
 
 	def __unicode__(self):

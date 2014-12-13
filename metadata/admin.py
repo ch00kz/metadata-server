@@ -14,9 +14,13 @@ class ActionAdmin(admin.ModelAdmin):
 class DepartmentAdmin(admin.ModelAdmin):
 	list_display=['name']
 
+class ClientAdmin(admin.ModelAdmin):
+	list_display = ['title','first_name','last_name','position','email']
+
 admin.site.register(Title)
 admin.site.register(Gender)
 admin.site.register(Staff, StaffAdmin)
+admin.site.register(Client, ClientAdmin)
 admin.site.register(Project,ProjectAdmin)
 admin.site.register(Action,ActionAdmin)
 admin.site.register(Department,DepartmentAdmin)
