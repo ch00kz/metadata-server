@@ -15,5 +15,6 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls), name='admin'),
     url(r'^$', RedirectView.as_view(url='admin', permanent=False), name='index'),
+  	url(r'^form-project/', 'metadata.views.project_form', name='project-form'),
     url(r'^api/', include(v1_api.urls)),
 )

@@ -9,10 +9,18 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 from metadata.models import Action, Project
+from metadata.forms import ProjectForm
 
 # Create your views here.
 def dashboard(request):
 	return render (request, 'dashboard.html', {})
+
+def project_form(request):
+	project_form = ProjectForm()
+	context = {
+		'project_form': project_form
+	}
+	return render(request,'project_form.html', context)
 
 def auth_login(request):
 	if request.user.is_authenticated():
