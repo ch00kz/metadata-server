@@ -16,21 +16,27 @@ class ProjectForm(ModelForm):
 		self.helper.layout = Layout(
 			Div(
 				Field('name'),
+				Field('category'),
 				Field('currency'),
 				css_class="half-screen inline"
 			),
 			Div(
 				Field('start_date'),
+				Field('status'),
 				Field('value'),
 				css_class="half-screen inline"
 			),
 			Div(
-				Field('description'),
+				Field('department'),
 				css_class="half-screen inline"
 			),
 			Div(
 				Field('clients'),
 				css_class="half-screen inline"
+			),
+			Div(
+				Field('description'),
+				css_class="full-screen"
 			),
 			Div(
 				Field('expected_end_date'),
