@@ -43,7 +43,8 @@ INSTALLED_APPS = (
     'corsheaders',
     'metadata',
     "auth_module",
-    'tastypie'
+    'tastypie',
+    'crispy_forms'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -62,6 +63,7 @@ WSGI_APPLICATION = 'metadata.wsgi.application'
 
 LOGIN_URL = '/login/'
 
+CRISPY_TEMPLATE_PACK = "bootstrap"
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
