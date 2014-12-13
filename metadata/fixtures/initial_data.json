@@ -197,60 +197,163 @@
 },
 {
     "fields": {
-        "actual_start_date": "2013-11-07",
-        "name": "eXcess",
-        "expected_start_date": "2013-11-07",
+        "first_name": "Christopher",
+        "last_name": "Issa",
+        "title": 1,
+        "entity": "Spanish Court Hotel",
+        "office_phone": "555-5555",
+        "mobile_phone": "",
+        "home_phone": "",
+        "position": "Owner",
+        "email": "c.issa@spanishcourthotel.com"
+    },
+    "model": "metadata.client",
+    "pk": 1
+},
+{
+    "fields": {
+        "name": "Active",
+        "description": ""
+    },
+    "model": "metadata.projectstatus",
+    "pk": 1
+},
+{
+    "fields": {
+        "name": "Stalled",
+        "description": ""
+    },
+    "model": "metadata.projectstatus",
+    "pk": 2
+},
+{
+    "fields": {
+        "name": "Complete",
+        "description": ""
+    },
+    "model": "metadata.projectstatus",
+    "pk": 3
+},
+{
+    "fields": {
+        "name": "Commercial",
+        "description": ""
+    },
+    "model": "metadata.projectcategory",
+    "pk": 1
+},
+{
+    "fields": {
+        "name": "Pro-Bono",
+        "description": ""
+    },
+    "model": "metadata.projectcategory",
+    "pk": 2
+},
+{
+    "fields": {
+        "name": "MGI Research & Development",
+        "description": ""
+    },
+    "model": "metadata.projectcategory",
+    "pk": 3
+},
+{
+    "fields": {
+        "name": "UWI Pro-Bono",
+        "description": ""
+    },
+    "model": "metadata.projectcategory",
+    "pk": 4
+},
+{
+    "fields": {
+        "name": "JMD",
+        "to_jmd": "1.00"
+    },
+    "model": "metadata.currency",
+    "pk": 1
+},
+{
+    "fields": {
+        "name": "USD",
+        "to_jmd": "115.00"
+    },
+    "model": "metadata.currency",
+    "pk": 2
+},
+{
+    "fields": {
+        "status": 1,
+        "category": 1,
+        "description": "Insurance Web Portal for JIIC",
+        "lead_staff": [],
+        "clients": [],
         "actual_end_date": null,
-        "expected_cost": "15000000",
+        "value": "12000.00",
+        "assisting_staff": [],
         "expected_end_date": "2014-11-07",
+        "currency": 2,
         "department": [],
-        "actual_cost": "18500000",
-        "description": "Insurance Web Portal for JIIC"
+        "start_date": "2013-11-07",
+        "name": "eXcess"
     },
     "model": "metadata.project",
     "pk": 1
 },
 {
     "fields": {
-        "actual_start_date": "2014-10-01",
-        "name": "Unite For Change",
-        "expected_start_date": "2014-10-07",
+        "status": null,
+        "category": null,
+        "description": "",
+        "lead_staff": [],
+        "clients": [],
         "actual_end_date": null,
-        "expected_cost": "1000000",
+        "value": null,
+        "assisting_staff": [],
         "expected_end_date": "2014-11-01",
+        "currency": null,
         "department": [],
-        "actual_cost": null,
-        "description": ""
+        "start_date": "2014-10-01",
+        "name": "Unite For Change"
     },
     "model": "metadata.project",
     "pk": 2
 },
 {
     "fields": {
-        "actual_start_date": "2012-11-07",
-        "name": "NEPA",
-        "expected_start_date": "2012-11-07",
+        "status": null,
+        "category": null,
+        "description": "Coastal Set Back Line Tool +",
+        "lead_staff": [],
+        "clients": [],
         "actual_end_date": "2013-12-20",
-        "expected_cost": "5000000",
+        "value": "5000000.00",
+        "assisting_staff": [],
         "expected_end_date": "2013-10-07",
+        "currency": null,
         "department": [],
-        "actual_cost": "5000000",
-        "description": "Coastal Set Back Line Tool +"
+        "start_date": "2012-11-07",
+        "name": "NEPA"
     },
     "model": "metadata.project",
     "pk": 3
 },
 {
     "fields": {
-        "actual_start_date": "2014-09-07",
-        "name": "Spanish Court Map",
-        "expected_start_date": "2014-09-07",
+        "status": null,
+        "category": null,
+        "description": "Tourtist Map of New Kingston for Spanish Court Hotel",
+        "lead_staff": [],
+        "clients": [],
         "actual_end_date": null,
-        "expected_cost": "200000",
+        "value": "200000.00",
+        "assisting_staff": [],
         "expected_end_date": null,
+        "currency": 1,
         "department": [],
-        "actual_cost": "200000",
-        "description": "Tourtist Map of New Kingston for Spanish Court Hotel"
+        "start_date": "2014-09-07",
+        "name": "Spanish Court Map"
     },
     "model": "metadata.project",
     "pk": 4
