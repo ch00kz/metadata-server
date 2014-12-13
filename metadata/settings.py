@@ -44,7 +44,7 @@ INSTALLED_APPS = (
     'metadata',
     "auth_module",
     'tastypie',
-    'crispy_forms'
+    'crispy_forms',
 )
 
 MIDDLEWARE_CLASSES = (
