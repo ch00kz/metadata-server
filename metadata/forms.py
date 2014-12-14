@@ -12,46 +12,45 @@ class ProjectForm(ModelForm):
 		super(ProjectForm, self).__init__(*args, **kwargs)
 		self.helper = FormHelper()
 		self.helper.form_id = 'form-create-project'
-		self.helper.attrs = {'ng-submit': 'createProject()', 'method': ''}
 		self.helper.layout = Layout(
 			Div(
-				Field('name'),
-				Field('category'),
-				Field('currency'),
+				Field('name', ng_model="name"),
+				Field('category', ng_model="category"),
+				Field('currency', ng_model="currency"),
 				css_class="half-screen inline"
 			),
 			Div(
-				Field('start_date'),
-				Field('status'),
-				Field('value'),
+				Field('start_date', ng_model="start_date"),
+				Field('status', ng_model="status"),
+				Field('value', ng_model="value"),
 				css_class="half-screen inline"
 			),
 			Div(
-				Field('department'),
+				Field('department', ng_model="department"),
 				css_class="half-screen inline"
 			),
 			Div(
-				Field('clients'),
+				Field('clients', ng_model="clients"),
 				css_class="half-screen inline"
 			),
 			Div(
-				Field('description'),
+				Field('description', ng_model="description"),
 				css_class="full-screen"
 			),
 			Div(
-				Field('expected_end_date'),
+				Field('expected_end_date', ng_model="expected_end_date"),
 				css_class="half-screen inline"
 			),
 			Div(
-				Field('actual_end_date'),
+				Field('actual_end_date', ng_model="actual_end_date"),
 				css_class="half-screen inline"
 			),
 			Div(
-				Field('lead_staff'),
+				Field('lead_staff', ng_model="lead_staff"),
 				css_class="half-screen inline"
 			),
 			Div(
-				Field('assisting_staff'),
+				Field('assisting_staff', ng_model="assisting_staff"),
 				css_class="half-screen inline"
 			)
 		)
