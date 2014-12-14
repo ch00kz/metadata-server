@@ -286,15 +286,24 @@
     "fields": {
         "status": 1,
         "category": 1,
-        "description": "Insurance Web Portal for JIIC",
-        "lead_staff": [],
+        "description": "Insurance Web Portal to be built for Jamaica International Insurance Company (JIIC). ",
+        "lead_staff": [
+            4
+        ],
         "clients": [],
         "actual_end_date": null,
         "value": "12000.00",
-        "assisting_staff": [],
-        "expected_end_date": "2014-11-07",
+        "assisting_staff": [
+            1,
+            2,
+            3,
+            5
+        ],
+        "expected_end_date": "2014-12-14",
         "currency": 2,
-        "department": [],
+        "department": [
+            1
+        ],
         "start_date": "2013-11-07",
         "name": "eXcess"
     },
