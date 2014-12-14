@@ -33,6 +33,10 @@ class Staff(models.Model):
 	photo = models.FileField(upload_to="staff_photos/", blank=True, null=True)
 	department = models.ForeignKey(Department, null=True, blank=True)
 
+	@property
+	def full_name(self):
+	    return "{} {}".format(self.first_name, self.last_name)
+
 	def __unicode__(self):
 		return u'{} {} {}'.format(self.title, self.first_name, self.last_name)
 
@@ -78,8 +82,8 @@ class Project(models.Model):
 	currency = models.ForeignKey(Currency, null=True, blank=True)
 	value = models.DecimalField(max_digits=10, decimal_places=2,null=True,blank=True)
 	clients = models.ManyToManyField(Client, null=True, blank=True)
-	lead_staff = models.ManyToManyField(Staff, related_name='+', null=True, blank=True)
-	assisting_staff = models.ManyToManyField(Staff, related_name='+', null=True, blank=True)
+	lead_staff = models.ManyToManyField(Staff, related_name='lead_projects', null=True, blank=True)
+	assisting_staff = models.ManyToManyField(Staff, related_name='assisting_projects', null=True, blank=True)
 	description = models.TextField(null=True,blank=True)
 	start_date = models.DateField(null=True,blank=True)
 	expected_end_date = models.DateField(null=True,blank=True)
