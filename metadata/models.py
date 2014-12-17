@@ -51,6 +51,10 @@ class Client(models.Model):
 	mobile_phone = models.CharField(max_length=50, null=True, blank=True)
 	home_phone = models.CharField(max_length=50, null=True, blank=True)
 
+	@property
+	def full_name(self):
+	    return "{} {}".format(self.first_name, self.last_name)
+
 	def __unicode__(self):
 		return u'{} {} {}'.format(self.title, self.first_name, self.last_name)
 
