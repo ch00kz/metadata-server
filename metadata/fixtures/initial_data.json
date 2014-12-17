@@ -212,6 +212,51 @@
 },
 {
     "fields": {
+        "first_name": "Junior",
+        "last_name": "Graham",
+        "title": 1,
+        "entity": "Grace Kennedy Co Ltd",
+        "office_phone": "",
+        "mobile_phone": "",
+        "home_phone": "",
+        "position": "VP - New Services",
+        "email": ""
+    },
+    "model": "metadata.client",
+    "pk": 2
+},
+{
+    "fields": {
+        "first_name": "Shaun",
+        "last_name": "Green",
+        "title": 1,
+        "entity": "NEPA",
+        "office_phone": "",
+        "mobile_phone": "",
+        "home_phone": "",
+        "position": "Marine Biologist",
+        "email": ""
+    },
+    "model": "metadata.client",
+    "pk": 3
+},
+{
+    "fields": {
+        "first_name": "Elizabeth",
+        "last_name": "Ward",
+        "title": 4,
+        "entity": "Violence Prevention Alliance",
+        "office_phone": "",
+        "mobile_phone": "",
+        "home_phone": "",
+        "position": "Board Member",
+        "email": ""
+    },
+    "model": "metadata.client",
+    "pk": 4
+},
+{
+    "fields": {
         "name": "Active",
         "description": ""
     },
@@ -290,7 +335,9 @@
         "lead_staff": [
             4
         ],
-        "clients": [],
+        "clients": [
+            2
+        ],
         "actual_end_date": null,
         "value": "12000.00",
         "assisting_staff": [
@@ -312,17 +359,28 @@
 },
 {
     "fields": {
-        "status": null,
-        "category": null,
+        "status": 3,
+        "category": 1,
         "description": "",
-        "lead_staff": [],
-        "clients": [],
+        "lead_staff": [
+            4
+        ],
+        "clients": [
+            4
+        ],
         "actual_end_date": null,
-        "value": null,
-        "assisting_staff": [],
+        "value": "200000.00",
+        "assisting_staff": [
+            1,
+            2,
+            3,
+            5
+        ],
         "expected_end_date": "2014-11-01",
-        "currency": null,
-        "department": [],
+        "currency": 1,
+        "department": [
+            1
+        ],
         "start_date": "2014-10-01",
         "name": "Unite For Change"
     },
@@ -331,17 +389,28 @@
 },
 {
     "fields": {
-        "status": null,
-        "category": null,
+        "status": 3,
+        "category": 1,
         "description": "Coastal Set Back Line Tool +",
-        "lead_staff": [],
-        "clients": [],
+        "lead_staff": [
+            4
+        ],
+        "clients": [
+            3
+        ],
         "actual_end_date": "2013-12-20",
         "value": "5000000.00",
-        "assisting_staff": [],
+        "assisting_staff": [
+            2,
+            3,
+            4,
+            5
+        ],
         "expected_end_date": "2013-10-07",
-        "currency": null,
-        "department": [],
+        "currency": 1,
+        "department": [
+            1
+        ],
         "start_date": "2012-11-07",
         "name": "NEPA"
     },
@@ -350,17 +419,25 @@
 },
 {
     "fields": {
-        "status": null,
-        "category": null,
+        "status": 1,
+        "category": 1,
         "description": "Tourtist Map of New Kingston for Spanish Court Hotel",
-        "lead_staff": [],
-        "clients": [],
+        "lead_staff": [
+            4
+        ],
+        "clients": [
+            1
+        ],
         "actual_end_date": null,
         "value": "200000.00",
-        "assisting_staff": [],
+        "assisting_staff": [
+            2
+        ],
         "expected_end_date": null,
         "currency": 1,
-        "department": [],
+        "department": [
+            3
+        ],
         "start_date": "2014-09-07",
         "name": "Spanish Court Map"
     },
